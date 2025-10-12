@@ -23,8 +23,8 @@ const Header = () => {
         ))}
       </ul>
       <div className="btns flex space-x-3">
-        <button className='w-10 h-10 flex items-center justify-center bg-cyan-950 rounded-full'><Linkedin/></button>
-        <button className='w-10 h-10 flex items-center justify-center bg-cyan-950 rounded-full'><Github/></button>
+        <button onClick={() => window.open("https://linkedin.com/in/aditya-raghav-958247259")} className='w-10 h-10 flex items-center justify-center bg-cyan-950 rounded-full hover:scale-120 duration-100 hover:border-2 hover:border-blue-400 '><Linkedin/></button>
+        <button onClick={() => window.open("https://github.com/AdityaRaghav0112", "_blank")} className='w-10 h-10 flex items-center justify-center bg-cyan-950 rounded-full hover:scale-120 hover:border-2 hover:border-blue-400 duration-100'><Github/></button>
       </div>
     </div>
     <hr className='text-blue-400' />
