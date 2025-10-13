@@ -12,7 +12,7 @@ const Projects = () => {
         <ProfileCard name="Skivvy" tag="A skill sharing platform" avatarUrl='../../public/p1.png'/>
         <ProfileCard name="Parallax" tag="A skill sharing platform"/>
         <ProfileCard name="Roll your dice" tag="A skill sharing platform"/>
-
+    
       </div>
     </div>
   )
