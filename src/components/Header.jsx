@@ -1,5 +1,6 @@
 import React from 'react'
 import {Linkedin, Github} from 'lucide-react'
+import { Navigate } from 'react-router-dom'
 
 const Header = () => {
 
