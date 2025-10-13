@@ -2,6 +2,7 @@
 
 body{
   background: #0A0F14;
+  scroll-behavior: smooth;
 }
 
 /* .hero{
