@@ -18,17 +18,17 @@ const Projects = () => {
         <ThreeDCardDemo
           name="Skivvy"
           tag="A skill sharing platform"
-          image="../../public/p1.png"
+          image="../../p1.png"
         />
         <ThreeDCardDemo
           name="Parallax"
           tag="An extraordinary UI element"
-          image="../../public/p2.png"
+          image="../../p2.png"
         />
         <ThreeDCardDemo
           name="Roll your dice"
           tag="A multiplayer minigame"
-          image="../../public/p3.png"
+          image="../../p3.png"
         />
       </div>
     </div>
