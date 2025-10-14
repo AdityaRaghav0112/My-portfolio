@@ -1,6 +1,5 @@
 import React from 'react'
 import {Linkedin, Github} from 'lucide-react'
-import { Navigate } from 'react-router-dom'
 
 const Header = () => {
 
@@ -9,6 +8,13 @@ const Header = () => {
         {id:'projects', title:"Projects"},
         {id: 'contact', title:"Contact"},
     ]
+
+    const handleNavClick = (event, targetId) => {
+      event.preventDefault()
+      const target = document.getElementById(targetId)
+      if (!target) return
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
 
   return (
     <> 
@@ -19,7 +25,7 @@ const Header = () => {
       <ul className='flex justify-evenly space-x-15 font-medium text-gray-200'>
         {navLinks.map((link) => (
             <li key={link.id}>
-                <a href={`#${link.id}`}>{link.title}</a>
+                <a href={`#${link.id}`} onClick={(e) => handleNavClick(e, link.id)}>{link.title}</a>
             </li>
         ))}
       </ul>

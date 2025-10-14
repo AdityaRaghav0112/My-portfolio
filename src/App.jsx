@@ -10,8 +10,13 @@ const App = () => {
   return (
     <div>
       <Header/>
-      <Hero/>
-      <Projects/>
+      <div id="about">
+        <Hero/>
+      </div>
+      <div id="projects">
+        <Projects/>
+      </div>
+      <div id="contact" className="mt-20"></div>
       <Skill/>
     </div>
   )
