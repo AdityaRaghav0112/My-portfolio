@@ -2,8 +2,8 @@ import React from "react";
 
 const ContactForm = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#0d1117]">
-      <form className="bg-[#111827] p-8 rounded-2xl shadow-xl w-[22rem] flex flex-col space-y-4">
+    <div className="min-h-screen flex items-center justify-center bg-[#0d1117] drop-shadow-2xl">
+      <form className="bg-[#111827] p-8 rounded-2xl shadow-xl w-[30rem] flex flex-col space-y-4">
         <div>
           <label className="block text-sm font-medium text-gray-300 mb-1">Name</label>
           <input

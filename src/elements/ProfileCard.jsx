@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useCallback, useMemo } from 'react';
 import './ProfileCard.css';
+import { href } from 'react-router-dom';
 const DEFAULT_BEHIND_GRADIENT =
   'radial-gradient(farthest-side circle at var(--pointer-x) var(--pointer-y),hsla(266,100%,90%,var(--card-opacity)) 4%,hsla(266,50%,80%,calc(var(--card-opacity)*0.75)) 10%,hsla(266,25%,70%,calc(var(--card-opacity)*0.5)) 50%,hsla(266,0%,60%,0) 100%),radial-gradient(35% 52% at 55% 20%,#00ffaac4 0%,#073aff00 100%),radial-gradient(100% 100% at 50% 50%,#00c1ffff 1%,#073aff00 76%),conic-gradient(from 124deg at 50% 50%,#c137ffff 0%,#07c6ffff 40%,#07c6ffff 60%,#c137ffff 100%)';
 
@@ -23,6 +24,7 @@ const adjust = (value, fromMin, fromMax, toMin, toMax) =>
 const easeInOutCubic = x => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
 
 const ProfileCardComponent = ({ 
+  addr,
   tag,
   avatarUrl,
   iconUrl = '<Placeholder for icon URL>',
@@ -39,7 +41,7 @@ const ProfileCardComponent = ({
   title = '',
   handle = 'javicodes',
   status = 'Online',
-  contactText = 'Learn more',
+  contactText = 'Contact Me',
   showUserInfo = true,
   onContactClick
 }) => {
@@ -246,6 +248,7 @@ const ProfileCardComponent = ({
 
   const handleContactClick = useCallback(() => {
     onContactClick?.();
+    window.open(addr,'_blank')
   }, [onContactClick]);
 
   return (
@@ -268,7 +271,7 @@ const ProfileCardComponent = ({
             {showUserInfo && (
               <div className="pc-user-info">
                 <div className="pc-user-details">
-                  {/* <div className="pc-mini-avatar">
+                  <div className="pc-mini-avatar">
                     <img
                       src={miniAvatarUrl || avatarUrl}
                       alt={`${name || 'User'} mini avatar`}
@@ -279,7 +282,7 @@ const ProfileCardComponent = ({
                         target.src = avatarUrl;
                       }}
                     />
-                  </div> */}
+                  </div>
                   <div className="pc-user-text">
                     <div className="pc-handle">{name}</div>
                     <div className="pc-status">{tag}</div>
