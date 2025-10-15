@@ -1,26 +1,20 @@
 import React from 'react'
 import { StickyScroll } from "./ui/sticky-scroll-reveal";
+import webD from '../assets/webD.png';
+import DSA from '../assets/DSA.png';
+import Col from '../assets/College.png';
+import Sch from '../assets/School.png';
 
 const ExpEdu = () => {
     const content = [
   {
-    title: "Collaborative Editing",
+    title: "Web Development Internship | Aptron pvt.ltd.,Noida",
     description:
-      "Work together in real time with your team, clients, and stakeholders. Collaborate on documents, share ideas, and make decisions quickly. With our platform, you can streamline your workflow and increase productivity.",
-    content: (
-      <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] text-white">
-        Collaborative Editing
-      </div>
-    ),
-  },
-  {
-    title: "Real time changes",
-    description:
-      "See changes as they happen. With our platform, you can track every modification in real time. No more confusion about the latest version of your project. Say goodbye to the chaos of version control and embrace the simplicity of real-time updates.",
+      "During my 5-weeks internship at Aptron Pvt. Ltd.(from 17th June 2024 to 20th Julty 2024, I gained hands-on experience in front-end web development using HTML, CSS, JS, ReactJS. I worked on building responsive and interactive web interfaces while strengthening my understanding of component-based architecture and modern UI design principles. This internship helped me enhance my problem-solving skills, improve code efficiency, and gain practical exposure to real-world development workflows",
     content: (
       <div className="flex h-full w-full items-center justify-center text-white">
         <img
-          src="/linear.webp"
+          src={webD}
           width={300}
           height={300}
           className="h-full w-full object-cover"
@@ -30,30 +24,65 @@ const ExpEdu = () => {
     ),
   },
   {
-    title: "Version control",
+    title: "DSA summer school | Dronacharya college of engineering",
     description:
-      "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+      "I participated in a 6-week DSA (Data Structures and Algorithms) Summer School at Dronacharya College of Engineering, where I strengthened my understanding of core computer science concepts and problem-solving techniques. During the program, I worked on implementing various data structures and algorithms in C++, focusing on optimizing time and space complexity. This experience significantly improved my logical thinking, coding efficiency, and ability to approach complex computational problems systematically.",
     content: (
-      <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] text-white">
-        Version control
+      <div className="flex h-full w-full items-center justify-center text-white">
+        <img
+          src={DSA}
+          width={300}
+          height={300}
+          className="h-full w-full object-cover"
+          alt="linear board demo"
+        />
       </div>
     ),
   },
   {
-    title: "Running out of content",
+    title: "B.tech CSE | Dronacharya College of Engineering,Gurgaon",
     description:
-      "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+      "With a strong foundation in Web development and modern front-end technilogies. My academic journey has equipped me with a solid programming and problem solving skills. I am passionate about designing efficient, user-friendly web applications and continuously exploring new tools and frameworks to enhance my development skills.",
     content: (
-      <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] text-white">
-        Running out of content
+      <div className="flex h-full w-full items-center justify-center text-white">
+        <img
+          src={Col}
+          width={300}
+          height={300}
+          className="h-full w-full object-cover"
+          alt="linear board demo"
+        />
       </div>
     ),
   },
+  {
+    title: "High School | Pathfinder Global School,Pataudi",
+    description:
+      "I completed my schooling at Pathfinder Global School, Pataudi, where I built a strong academic foundation and developed a disciplined and analytical approach to learning. My time at Pathfinder helped me cultivate curiosity, teamwork, and leadership skills through active participation in academics, cultural events, and co-curricular activities. The school’s emphasis on holistic development played a key role in shaping my communication skills, confidence, and interest in technology, which eventually guided me toward pursuing a career in computer science.",
+    content: (
+      <div className="flex h-full w-full items-center justify-center text-white">
+        <img
+          src={Sch}
+          width={300}
+          height={300}
+          className="h-full w-full object-cover"
+          alt="linear board demo"
+        />
+      </div>
+    ),
+  },
+  
 ];
   return (
-    <div className="w-full py-4">
+    <> 
+    <div className="exp-container">
+      <h1 className='text-white text-5xl text-center font-semibold p-5'>Experience & Education </h1>
+    <p className='text-gray-400 text-center text-xl font-semibold'>My professional journey and academic background</p>
+    </div>
+    <div className="w-full py-4 mt-10">
       <StickyScroll content={content} />
     </div>
+    </>
   )
 }
 
