@@ -4,9 +4,10 @@ import {Linkedin, Github} from 'lucide-react'
 const Header = () => {
 
     const navLinks = [
-        {id: "about", title:"About"},
-        {id:'projects', title:"Projects"},
-        {id: 'contact', title:"Contact"},
+      {id:'projects', title:"Projects"},
+      {id: "skills", title:"Skills"},
+      {id: 'exp', title: 'Experience & Education'},
+      {id: 'contact', title:"Contact"},
     ]
 
     const handleNavClick = (event, targetId) => {
