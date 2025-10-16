@@ -31,10 +31,10 @@ const Contact = () => {
             Contact with me
           </h2>
         </div>
-        <div className="flex justify-center items-center mt-5 overflow-visible gap-10">
-          <ProfileCard name={'@AdityaRaghav'} tag="Engineering Student" avatarUrl={'../../profile.jpg'}  addr="https://www.instagram.com/adityaraghav65/"/>
-          <ProfileCard name={'Aditya Raghav'} tag="Engineering Student" avatarUrl={'../../profile2.jpg'} addr="https://www.linkedin.com/in/aditya-raghav-958247259"/>
-          <ProfileCard name={'Aditya Raghav'} tag="Engineering Student" avatarUrl={'../../profile2.jpg'} addr="https://www.linkedin.com/in/aditya-raghav-958247259"/>
+        <div className="flex justify-center items-center mt-5 overflow-visible gap-10 pb-10">
+          <ProfileCard name={'@AdityaRaghav'} tag="Instagram" avatarUrl={'../../profile.jpg'}  addr="https://www.instagram.com/adityaraghav65/"/>
+          <ProfileCard name={'Aditya Raghav'} tag="Linkedin" avatarUrl={'../../profile2.jpg'} addr="https://www.linkedin.com/in/aditya-raghav-958247259"/>
+          <ProfileCard name={'AdityaRaghav0112'} tag="Github" avatarUrl={'../../profile3.png'} addr="https://github.com/AdityaRaghav0112"/>
         </div>
       </div>
       {/* <div className="item2 h-[40rem]">

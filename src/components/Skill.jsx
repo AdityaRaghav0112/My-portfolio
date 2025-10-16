@@ -113,11 +113,8 @@ const Skill = () => {
                 Technical Skills
               </h2>
               {skills.map((s, index) => (
-                <>
-                  <div
-                    key={index}
-                    className="mb-6 text-white flex justify-between mr-3 pt-5"
-                  >
+                <React.Fragment key={index}>
+                  <div className="mb-6 text-white flex justify-between mr-3 pt-5">
                     <span className="text-lg font-medium mt-3">{s.sn}</span>
                     <span className="text-lg font-medium text-gray-400">
                       {s.level}%
@@ -129,9 +126,9 @@ const Skill = () => {
                       style={{ width: `${s.level}%` }}
                     ></div>
                   </div>
-                </>
+                </React.Fragment>
               ))}
-              
+
               <div className="max-w-10xl mx-auto px-8">
                 <HoverEffect items={projects} />
               </div>

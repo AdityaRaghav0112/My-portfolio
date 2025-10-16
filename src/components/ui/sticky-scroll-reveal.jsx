@@ -42,10 +42,7 @@ export const StickyScroll = ({
     "linear-gradient(to bottom right, #ec4899, #6366f1)", // pink-500 to indigo-500
     "linear-gradient(to bottom right, #f97316, #eab308)", // orange-500 to yellow-500
   ];
-  gsap.to('.sticky-container', {
-    ScrollTrigger: '.sticky-container',
-    scrub: true
-  })
+  
   const [backgroundGradient, setBackgroundGradient] = useState(linearGradients[0]);
 
   useEffect(() => {
