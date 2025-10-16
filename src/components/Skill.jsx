@@ -75,6 +75,7 @@ const Skill = () => {
   ];
   return (
     <>
+    {/* MAIN-CONTAINER */}
       <div className="skills-container flex flex-col items-center justify-center">
         <div className="skills w-full">
           <h1 className="text-white text-center text-5xl font-semibold p-5">
