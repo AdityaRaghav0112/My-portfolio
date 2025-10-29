@@ -1,37 +1,49 @@
 import React from "react";
-import ProfileCard from "../elements/ProfileCard";
 import ThreeDCardDemo from "./ThreeDCardDemo";
 
 const Projects = () => {
   return (
-    <div className="mt-20 flex flex-col p-5 gap-5">
-      <h1 className='text-white text-center text-5xl font-semibold'>Latest Projects</h1>
-      <p className="text-center text-xl text-gray-400 font-semibold">
+    <div className="mt-20 flex flex-col items-center p-4 sm:p-6 md:p-8 lg:p-10 gap-5">
+      {/* Title */}
+      <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-semibold text-center">
+        Latest Projects
+      </h1>
+
+      {/* Subtitle */}
+      <p className="text-center text-base sm:text-lg md:text-xl text-gray-400 font-semibold max-w-2xl">
         A glimpse into my recent work and latest explorations.
       </p>
 
       {/* PROJECT SHOWCASE */}
-      <div className="projects flex items-center justify-center gap-20 mt-20">
-        {/* <ProfileCard name="Skivvy" tag="A skill sharing platform" avatarUrl='../../public/p1.png'/> */}
-        {/* <ProfileCard name="Parallax" tag="A skill sharing platform " avatarUrl='../../public/p2.png'/>
-        <ProfileCard name="Roll your dice" tag="A skill sharing platform" avatarUrl='../../public/p3.png'/> */}
+      <div
+        className="
+          projects 
+          grid 
+          grid-cols-1 
+          sm:grid-cols-2 
+          lg:grid-cols-3 
+          gap-10 
+          sm:gap-12 
+          md:gap-16 
+          mt-14 
+          w-full 
+          justify-items-center
+        "
+      >
         <ThreeDCardDemo
           name="Skivvy"
           tag="A skill sharing platform"
           image="../../p1.png"
-          
         />
         <ThreeDCardDemo
           name="Parallax"
           tag="An extraordinary UI element"
           image="../../p2.png"
-          
         />
         <ThreeDCardDemo
           name="Roll your dice"
           tag="A multiplayer minigame"
           image="../../p3.png"
-          
         />
       </div>
     </div>
