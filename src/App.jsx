@@ -22,8 +22,8 @@ const App = () => {
         <Skill/>
       </div>
       <div id="exp"><ExpEdu/></div>
-      <div id="contact" className='mt-20'></div>
-      <Contact/>
+      <div id="contact" className='mt-20'><Contact/></div>
+      
     </div>
   )
 }

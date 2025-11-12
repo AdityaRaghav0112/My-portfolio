@@ -43,7 +43,7 @@ const experiences = [
 
 const ExpEdu = () => {
   return (
-    <section className="w-full bg-background py-20 px-4 sm:px-8 lg:px-16">
+    <section className="w-full bg-background py-20 px-4 sm:px-8 lg:px-16 mt-10 relative z-0">
       {/* Header */}
       <div className="text-center mb-16">
         <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold mb-4">

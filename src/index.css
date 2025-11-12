@@ -1,17 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap');
 @import "tailwindcss";
 
 body{
   /* background: #0A0F14; */
   background: black;
   scroll-behavior: smooth;
+  font-family: "Quicksand", sans-serif;
 }
 
 /* .hero{
   background-image: url(../a\ black\ and\ white\ ab.png);
 } */
 
-.p1{
-  background-image: url(../p1.png);
-  align-items: center;
-}
 

@@ -8,14 +8,14 @@ const Hero = () => {
     <div className="hero-container w-full flex items-center justify-center">
       <div className="hero relative w-full h-screen text-white flex flex-col justify-end p-6 md:p-12 overflow-hidden drop-shadow-2xl">
         {/* Background component */}
-        <div className="absolute inset-0 -z-10">
+        {/* <div className="absolute inset-0 -z-10">
           <Darkveil />
-        </div>
+        </div> */}
 
         {/* Hero content */}
         <div className="px-4 md:px-8">
           {/* TextPressure title */}
-          <div className="py-6 sm:py-8">
+          {/* <div className="py-6 sm:py-8">
             <TextPressure
               text="Hi, I'm Aditya Raghav."
               flex={true}
@@ -29,7 +29,9 @@ const Hero = () => {
               minFontSize={36}
               maxFontSize={120} 
             />
-          </div>
+          </div> */}
+
+          <h1 className="text-8xl font-semibold py-5">Hi, I'm <span className="text-blue-400">Aditya Raghav</span></h1>
           
 
           {/* Description */}

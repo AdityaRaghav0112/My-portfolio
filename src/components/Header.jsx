@@ -30,7 +30,7 @@ const Header = () => {
       className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between transition-all duration-500
         ${
           scrolled
-            ? "w-[90%] sm:w-[80%] md:w-[70%] bg-white/10 backdrop-blur-lg rounded-full shadow-lg px-4 sm:px-6 py-3 border border-white/20"
+            ? "w-[90%] sm:w-[80%] md:w-[70%] bg-white/10 backdrop-blur-lg rounded-2xl shadow-lg px-4 sm:px-6 py-3 border border-white/20"
             : "w-[95%] sm:w-[90%] md:w-[85%] bg-transparent px-6 sm:px-10 py-4"
         }`}
     >
@@ -86,7 +86,7 @@ const Header = () => {
 
       {/* Mobile Dropdown */}
       {menuOpen && (
-        <div className="absolute top-full left-0 mt-3 w-full bg-black/70 backdrop-blur-md rounded-2xl p-4 flex flex-col items-center space-y-4 md:hidden border border-white/10">
+        <div className="absolute top-full left-0 mt-3 w-full bg-black/70 backdrop-blur-lg rounded-2xl p-4 flex flex-col items-center space-y-4 md:hidden border border-white/10">
           {navLinks.map((link) => (
             <a
               key={link.id}
