@@ -46,7 +46,7 @@ const ExpEdu = () => {
     <section className="w-full bg-background py-20 px-4 sm:px-8 lg:px-16 mt-10 relative z-0">
       {/* Header */}
       <div className="text-center mb-16">
-        <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+        <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold mb-4 cursor-target">
           Experience & Education
         </h1>
         <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto">

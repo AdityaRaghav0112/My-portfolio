@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Linkedin, Github, Menu, X } from "lucide-react";
+import TargetCursor from "./TargetCursor";
 
 const Header = () => {
   const navLinks = [
@@ -26,6 +27,7 @@ const Header = () => {
   }, []);
 
   return (
+    <> 
     <header
       className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between transition-all duration-500
         ${
@@ -40,15 +42,17 @@ const Header = () => {
           Aditya Raghav
         </h1>
       </button>
-
+      
+        
       {/* Desktop Navigation */}
       <ul className="hidden md:flex justify-evenly space-x-6 lg:space-x-10 font-medium text-gray-200">
+        
         {navLinks.map((link) => (
           <li key={link.id}>
             <a
               href={`#${link.id}`}
               onClick={(e) => handleNavClick(e, link.id)}
-              className="hover:text-blue-400 transition-colors"
+              className="hover:text-blue-400 transition-colors cursor-target"
             >
               {link.title}
             </a>
@@ -122,6 +126,7 @@ const Header = () => {
         </div>
       )}
     </header>
+    </>
   );
 };
 

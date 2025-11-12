@@ -164,6 +164,7 @@ const Projects = () => {
             <ProjectCard key={i} {...p} />
           ))}
         </div>
+
       </div>
     </section>
   );

@@ -7,7 +7,6 @@ import {
   SiTailwindcss,
 } from "react-icons/si";
 import HoverEffect from "./ui/card-hover-effect";
-import { Color } from "ogl";
 
 const Skill = () => {
   const demoItems = [
@@ -85,7 +84,7 @@ const Skill = () => {
     {/* MAIN-CONTAINER */}
       <div className="skills-container flex flex-col items-center justify-center">
         <div className="skills w-full">
-          <h1 className="text-white text-center text-5xl font-semibold p-5">
+          <h1 className="text-white text-center text-5xl font-semibold p-5 cursor-target">
             My Skill Set
           </h1>
           <p className="text-center text-xl text-gray-400 font-semibold mb-10">
@@ -138,7 +137,7 @@ const Skill = () => {
               ))}
 
               <div className="max-w-10xl mx-auto px-8">
-                <HoverEffect items={projects} />
+                <HoverEffect items={projects}/>
               </div>
             </div>
           </div>
