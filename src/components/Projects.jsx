@@ -152,7 +152,7 @@ const Projects = () => {
 
   const projectsGroup3 = [
     {
-      addr: "",
+      addr: "https://github.com/AdityaRaghav0112/Parallax",
       image: showcase2,
       labelLeft: "Solo Dev.",
       labelRight: "Creative App",
