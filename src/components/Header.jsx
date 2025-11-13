@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Linkedin, Github, Menu, X } from "lucide-react";
 import TargetCursor from "./TargetCursor";
 
@@ -52,7 +52,7 @@ const Header = () => {
             <a
               href={`#${link.id}`}
               onClick={(e) => handleNavClick(e, link.id)}
-              className="hover:text-blue-400 transition-colors cursor-target"
+              className="hover:text-blue-400 transition-colors cursor-target cursor-none" 
             >
               {link.title}
             </a>
