@@ -1,62 +1,82 @@
 "use client";
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import sampleImage from "../assets/p1.png";
-import sampleImage2 from '../assets/p2.png';
-import sampleImage3 from '../assets/p3.png';
+import sampleImage2 from "../assets/p2.png";
+import sampleImage3 from "../assets/p3.png";
+import showcase1 from "../assets/skivvy.mp4";
+import showcase2 from "../assets/demoParallax.mp4";
+import showcase3 from "../assets/schedulify.mp4";
 
 gsap.registerPlugin(ScrollTrigger);
 
 // ✅ Reusable Project Card
-const ProjectCard = ({ image, labelLeft, labelRight, title, year, description, tags }) => {
+const ProjectCard = ({
+  image,
+  title,
+  year,
+  description,
+  tags,
+  addr,
+}) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const cursorRef = useRef(null);
+  const cardRef = useRef(null);
+
+  // Track mouse position relative to the card
+  useEffect(() => {
+    const card = cardRef.current;
+    if (!card) return;
+
+    const moveCursor = (e) => {
+      const rect = card.getBoundingClientRect();
+      if (cursorRef.current) {
+        cursorRef.current.style.left = `${e.clientX - rect.left}px`;
+        cursorRef.current.style.top = `${e.clientY - rect.top}px`;
+      }
+    };
+
+    card.addEventListener("mousemove", moveCursor);
+    return () => card.removeEventListener("mousemove", moveCursor);
+  }, []);
+
+  
+
   return (
+
+    
     <div className="relative w-screen h-full flex items-center justify-center px-10">
-      <div className="relative bg-gradient-to-b from-zinc-900 to-black rounded-3xl overflow-hidden shadow-lg border border-zinc-800 max-w-5xl w-full group">
-        {/* Image Section */}
+      <div
+        ref={cardRef}
+        className="relative bg-gradient-to-b from-zinc-900 to-black rounded-3xl overflow-hidden shadow-lg border border-zinc-800 max-w-5xl w-full group cursor-none"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onClick={() => window.open(addr, "_blank")}
+      >
+        {/* Video Section */}
         <div className="relative w-full aspect-[16/9] flex justify-center items-center bg-black overflow-hidden">
-          <motion.img
+          <motion.video
             src={image}
-            alt={title}
-            className="w-full h-full object-cover transition-all duration-500 ease-out group-hover:opacity-60 hover:size-[95%]"
+            className="w-full h-full cursor-target object-fill transition-all duration-500 ease-out group-hover:opacity-60 hover:scale-[90%]"
             initial={{ opacity: 1 }}
             whileHover={{ opacity: 0.6 }}
             transition={{ duration: 0.5 }}
+            autoPlay
+            loop
+            muted
+            playsInline
           />
 
-          {/* Black vignette lighting */}
-          <div className="absolute inset-0 rounded-3xl pointer-events-none bg-[radial-gradient(circle_at_center,transparent_40%,black_100%)] opacity-0 group-hover:opacity-80 transition-all duration-500" />
-
-          {/* Floating Labels */}
-          <div className="absolute bottom-8 left-10">
-            <span className="bg-amber-500/90 text-black px-3 py-1 rounded-lg font-semibold text-sm shadow-lg">
-              {labelLeft}
-            </span>
-          </div>
-
-          <div className="absolute bottom-8 right-10">
-            <span className="bg-indigo-500/90 text-white px-3 py-1 rounded-lg font-semibold text-sm shadow-lg">
-              {labelRight}
-            </span>
-          </div>
-
-          {/* Center Button */}
-          <motion.button
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileHover={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4 }}
-            className="absolute opacity-0 group-hover:opacity-100 transition-all duration-500 bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold px-6 py-3 rounded-xl hover:bg-white/20"
-          >
-            View Details
-          </motion.button>
+          {/* Dark overlay for effect */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,black_100%)] opacity-0 group-hover:opacity-80 transition-all duration-500 pointer-events-none" />
         </div>
 
         {/* Info Section */}
         <div className="p-6 text-zinc-100">
           <p className="text-sm text-zinc-400">{year}</p>
           <h2 className="text-2xl font-extrabold mt-1">{title}</h2>
-
           <div className="flex flex-wrap gap-2 my-3">
             {tags.map((tag, i) => (
               <span
@@ -67,11 +87,23 @@ const ProjectCard = ({ image, labelLeft, labelRight, title, year, description, t
               </span>
             ))}
           </div>
-
-          <p className="text-zinc-400 text-sm leading-relaxed">
-            {description}
-          </p>
+          <p className="text-zinc-400 text-sm leading-relaxed">{description}</p>
         </div>
+
+        {/* Custom Cursor */}
+        <motion.div
+          ref={cursorRef}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{
+            opacity: isHovered ? 1 : 0,
+            scale: isHovered ? 1 : 0.8,
+          }}
+          transition={{ duration: 0.2 }}
+          style={{ display: isHovered ? "block" : "none" }}
+          className="absolute z-[9999] pointer-events-none text-white font-semibold bg-black/60 backdrop-blur-md border border-white/20 px-4 py-2 rounded-xl text-sm"
+        >
+          Visit Site
+        </motion.div>
       </div>
     </div>
   );
@@ -84,39 +116,51 @@ const Projects = () => {
 
   const projectsGroup1 = [
     {
-      image: sampleImage,
-      labelLeft: "Group Cptn.",
-      labelRight: "Air Marshal",
+      addr: "https://skivvy.vercel.app/",
+      image: showcase1,
+      labelLeft: "",
+      labelRight: "",
       title: "Skivvy",
       year: "2025",
       description:
-        "How we helped Indian Defense units move from static sand models to a digital planning tool...",
-      tags: ["WEB APP", "UI/UX DESIGN", "USER RESEARCH"],
+        "A platform that pairs users by the skills they want to learn and teach, creating a space for mutual growth.",
+      tags: [
+        "WEB APP",
+        "PROFILE PAIRING",
+        "CHAT & MESSAGING",
+        "VOICE/VIDEO INTERACTION",
+        "DISCOVERY & MATCHING",
+        "CLEAN, MODERN UI",
+        "SKILL EXCHANGE REQUEST",
+      ],
     },
   ];
 
   const projectsGroup2 = [
     {
-      image: sampleImage2,
-      labelLeft: "Solo Dev.",
-      labelRight: "Creative App",
+      addr: "https://schedulify-three.vercel.app/",
+      image: showcase3,
+      labelLeft: "",
+      labelRight: "",
       title: "Schedulify",
-      year: "2024",
+      year: "2025",
       description:
-        "A lightweight design system made for fast prototyping and creative workflows.",
-      tags: ["DESIGN SYSTEM", "FRONTEND", "ANIMATION"],
+        "An interactive platform for students to learn, visualize, and master CPU scheduling algorithms with comprehensive notes.",
+      tags: ["WEB APP", "FRONTEND", "GRAPHS & CHARTS", "TABLES", "NOTES"],
     },
   ];
+
   const projectsGroup3 = [
     {
-      image: sampleImage3,
+      addr: "",
+      image: showcase2,
       labelLeft: "Solo Dev.",
       labelRight: "Creative App",
-      title: "Schedulify",
+      title: "Parallax",
       year: "2024",
       description:
-        "A lightweight design system made for fast prototyping and creative workflows.",
-      tags: ["DESIGN SYSTEM", "FRONTEND", "ANIMATION"],
+        "A lightweight UI component showcasing parallax using multiple parts of an image and can be used in any web project.",
+      tags: ["FRONTEND", "ANIMATION", "UI COMPONENT"],
     },
   ];
 
@@ -143,8 +187,11 @@ const Projects = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative w-full h-screen overflow-hidde">
-      <div ref={containerRef} className="flex h-full w-[200vw]">
+    <section
+      ref={sectionRef}
+      className="relative w-full h-screen overflow-hidden"
+    >
+      <div ref={containerRef} className="flex h-full w-[300vw]">
         {/* ✅ First Project Group */}
         <div className="flex w-screen h-full justify-center items-center">
           {projectsGroup1.map((p, i) => (
@@ -159,12 +206,12 @@ const Projects = () => {
           ))}
         </div>
 
+        {/* ✅ Third Project Group */}
         <div className="flex w-screen h-full justify-center items-center">
           {projectsGroup3.map((p, i) => (
             <ProjectCard key={i} {...p} />
           ))}
         </div>
-
       </div>
     </section>
   );
