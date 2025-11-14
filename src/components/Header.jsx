@@ -1,7 +1,8 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import { Linkedin, Github, Menu, X } from "lucide-react";
+import { Linkedin, Github, Menu, X, ArrowDown } from "lucide-react";
 import TargetCursor from "./TargetCursor";
+import myFile from '../assets/Resume.pdf';
 
 const Header = () => {
   const navLinks = [
@@ -63,21 +64,17 @@ const Header = () => {
       {/* Desktop Social Buttons */}
       <div className="hidden md:flex space-x-2 lg:space-x-3">
         <button
-          onClick={() =>
-            window.open("https://linkedin.com/in/aditya-raghav-958247259","_blank")
-          }
-          className="w-9 h-9 lg:w-10 lg:h-10 flex items-center justify-center bg-cyan-950 rounded-full hover:scale-110 duration-150 hover:border-2 hover:border-blue-400 p-1.5"
+          onClick={() => {
+            const link = document.createElement('a');
+            link.href = myFile;
+            link.download = "Resume.pdf";
+            link.click();
+          }}
+          className="text-white text-lg bg-blue-800 px-2 py-1 rounded-xl flex items-center gap-1 cursor-target hover:bg-transparent duration-500"
         >
-          <Linkedin size={18} className="lg:size-20" />
+          Resume <ArrowDown/>
         </button>
-        <button
-          onClick={() =>
-            window.open("https://github.com/AdityaRaghav0112", "_blank")
-          }
-          className="w-9 h-9 lg:w-10 lg:h-10 flex items-center justify-center bg-cyan-950 rounded-full hover:scale-110 duration-150 hover:border-2 hover:border-blue-400 p-1.5"
-        >
-          <Github size={18} className="lg:size-20" />
-        </button>
+        
       </div>
 
       {/* Mobile Menu Button */}
@@ -107,21 +104,16 @@ const Header = () => {
 
           <div className="flex space-x-4 mt-2">
             <button
-              onClick={() =>
-                window.open("https://linkedin.com/in/aditya-raghav-958247259")
-              }
-              className="w-9 h-9 flex items-center justify-center bg-cyan-950 rounded-full hover:scale-110 duration-150 hover:border-2 hover:border-blue-400"
-            >
-              <Linkedin size={18} />
-            </button>
-            <button
-              onClick={() =>
-                window.open("https://github.com/AdityaRaghav0112", "_blank")
-              }
-              className="w-9 h-9 flex items-center justify-center bg-cyan-950 rounded-full hover:scale-110 duration-150 hover:border-2 hover:border-blue-400"
-            >
-              <Github size={18} />
-            </button>
+          onClick={() => {
+            const link = document.createElement('a');
+            link.href = myFile;
+            link.download = "Resume.pdf";
+            link.click();
+          }}
+          className="text-white text-lg bg-blue-800 px-2 py-1 rounded-xl flex items-center gap-1 cursor-target hover:bg-transparent duration-500"
+        >
+          Resume <ArrowDown/>
+        </button>
           </div>
         </div>
       )}
