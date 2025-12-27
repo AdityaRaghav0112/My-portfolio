@@ -47,11 +47,11 @@ const Contact = () => {
         {/* Email + Socials */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
           <div className="grid grid-cols-3 grid-rows-2 gap-5">
-            <TargetCursor
+            {/* <TargetCursor
               spinDuration={2}
               hideDefaultCursor={true}
               parallaxOn={true}
-            />
+            /> */}
 
             {/* Social buttons */}
             <button onClick={()=> window.open('https://www.instagram.com/adityaraghav65/', '_blank')} className="row-span-1 col-span-1 cursor-target text-white bg-gradient-to-tr from-[#f58529] via-[#dd2a7b] to-[#8134af] p-3 rounded-3xl hover:scale-105 transition-transform">

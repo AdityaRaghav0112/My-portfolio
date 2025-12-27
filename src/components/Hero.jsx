@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef } from "react";
-import { FileUser } from "lucide-react";
+import {motion} from "motion/react";
+import { LayoutTextFlip } from "./ui/layout-text-flip";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -49,17 +50,31 @@ const Hero = () => {
         </div>
 
         {/* Content */}
-        <div className="px-4 md:px-8">
+        <div className="px-4 md:px-8 mb-20">
           <h1 className="text-6xl md:text-8xl font-semibold py-5">
             Hi, I'm{" "}
             <span className="text-blue-400 cursor-target">Aditya Raghav</span>
           </h1>
 
-          <p className="text-base sm:text-lg md:text-xl text-gray-300 font-semibold leading-relaxed max-w-3xl mb-18">
+          <div className="ml-2">
+            <motion.div className="relative mx-4 my-4 flex flex-col items-center gap-4 text-center sm:mx-0 sm:mb-0 sm:flex-row">
+              <LayoutTextFlip
+                text="I'm a "
+                words={[
+                  "Developer",
+                  "Tech Enthusiast",
+                  "Gamer",
+                  "Student"
+                ]}
+              />
+            </motion.div>
+          </div>
+
+          {/* <p className="text-base sm:text-lg md:text-xl text-gray-300 font-semibold leading-relaxed max-w-3xl mb-18">
             I’m a tech enthusiast who loves coding and building meaningful web
             experiences. My focus is clean code, smooth interfaces, and creative
             solutions.
-          </p>
+          </p> */}
         </div>
       </div>
     </div>
