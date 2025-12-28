@@ -6,8 +6,8 @@ import myFile from "../assets/Resume.pdf";
 const Header = () => {
   const navLinks = [
     { id: "projects", title: "Projects" },
-    { id: "skills", title: "Skills" },
     { id: "exp", title: "About" },
+    { id: "skills", title: "Skills" },
     { id: "contact", title: "Contact" },
   ];
 

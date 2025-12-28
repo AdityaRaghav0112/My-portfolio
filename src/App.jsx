@@ -19,10 +19,11 @@ const App = () => {
       <div id="projects">
         <Projects/>
       </div>
+      <div id="exp"><FeaturesSectionDemo/></div>
       <div id="skills">
         <Skill/>
       </div>
-      <div id="exp"><FeaturesSectionDemo/></div>
+      
       <div id="contact" className='mt-20'><Contact/></div>
       
     </div>
