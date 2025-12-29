@@ -3,11 +3,15 @@ import { HeroParallax } from "./ui/hero-parallax";
 import { ArrowRight } from "lucide-react";
 import ProjectsDetails from "./ProjectsDetails";
 import { motion, useMotionValue, useSpring } from "motion/react";
+import pre1 from "../assets/Skivvy.mp4";
+import pre2 from "../assets/Schedulify.mp4";
+import pre3 from "../assets/demoParallax.mp4";
 
-const PREVIEW_RADIUS = 180; // 👈 change radius here (px)
+
+const PREVIEW_RADIUS = 300;
 
 const Projects = () => {
-  const [isHidden, setIsHidden] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
 
   // Cursor motion
   const x = useMotionValue(0);
@@ -49,27 +53,30 @@ const Projects = () => {
         "An AI-powered personal assistant that helps you manage your tasks, schedule, and more.",
       link: "https://skivvy.ai",
       thumbnail: "/Projects/Skivvy.png",
+      pre: pre1,
     },
     {
       title: "Schedulify",
       description:
-        "Smart scheduling platform for productivity.",
+        "A web application that helps visualizing CPU scheduling algorithms for students.",
       link: "https://editorially.org",
       thumbnail: "/Projects/Schedulify.png",
+      pre: pre2,
     },
     {
-      title: "Editrix AI",
+      title: "Deploy",
       description:
-        "AI-powered content editing platform.",
-      link: "https://editrix.ai",
-      thumbnail: "/Projects/Skivvy.png",
-    },
-    {
-      title: "Pixel Perfect",
-      description:
-        "UI testing and pixel comparison tool.",
+        "A 'Dispatch' inspired game where players deploy their character strategically to complete objectives.",
       link: "https://app.pixelperfect.quest",
-      thumbnail: "/Projects/Skivvy.png",
+      thumbnail: "/Projects/Deploy.png",
+    },
+    {
+      title: "Parallax",
+      description:
+        "A UI component which creates a parallax effect based on cursor movement.",
+      link: "https://editrix.ai",
+      thumbnail: "/Projects/Parallax.png",
+      pre:pre3,
     },
   ];
 
@@ -111,49 +118,48 @@ const Projects = () => {
                   <h2 className="text-2xl font-bold text-white">
                     {project.title}
                   </h2>
-                  <p className="mt-2 text-white">
-                    {project.description}
-                  </p>
+                  <p className="mt-2 text-white">{project.description}</p>
                 </div>
               </a>
 
               <button
-                onClick={() => setIsHidden(true)}
+                onClick={() => setSelectedProject(project)}
                 className="text-white pr-4 flex gap-2 hover:pr-8 duration-200"
               >
                 Read more <ArrowRight />
               </button>
             </div>
 
-            {isHidden && (
-              <ProjectsDetails
-                title={project.title}
-                description={project.description}
-                link={project.link}
-                thumbnail={project.thumbnail}
-                closeModel={() => setIsHidden(false)}
-              />
-            )}
-
             <hr className="text-white" />
           </div>
         ))}
 
+        {/* Single modal for selected project */}
+        {selectedProject && (
+          <ProjectsDetails
+            title={selectedProject.title}
+            description={selectedProject.description}
+            link={selectedProject.link}
+            thumbnail={selectedProject.thumbnail}
+            pre={selectedProject.pre}
+            closeModel={() => setSelectedProject(null)}
+          />
+        )}
+
         {/* Cursor Preview */}
-        {preview &&
-          isWithinRadius(cursor, hoveredRect, PREVIEW_RADIUS) && (
-            <motion.img
-              src={preview}
-              alt=""
-              className="fixed top-0 left-0 z-50 w-120 h-auto 
+        {preview && isWithinRadius(cursor, hoveredRect, PREVIEW_RADIUS) && (
+          <motion.img
+            src={preview}
+            alt={"Preview"}
+            className="fixed top-0 left-0 z-50 w-120 h-auto 
                          object-cover rounded-lg shadow-lg 
                          pointer-events-none"
-              style={{ x: springX, y: springY }}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0 }}
-            />
-          )}
+            style={{ x: springX, y: springY }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+          />
+        )}
       </div>
     </div>
   );

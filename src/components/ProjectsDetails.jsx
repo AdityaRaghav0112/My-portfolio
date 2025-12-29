@@ -2,23 +2,15 @@ import React from "react";
 import { X, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 
-const ProjectsDetails = ({
-  title,
-  description,
-  link,
-  thumbnail,
-  closeModel,
-}) => {
+const ProjectsDetails = ({ title, description, link, pre, closeModel }) => {
   return (
     <motion.div
-      className="fixed inset-0 z-50 flex items-center justify-center 
-                 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      onClick={closeModel}   // 👈 click outside closes modal
+      onClick={closeModel}
     >
-      {/* Modal */}
       <motion.div
         initial={{ scale: 0.85, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
@@ -29,12 +21,11 @@ const ProjectsDetails = ({
           damping: 18,
           mass: 0.6,
         }}
-        onClick={(e) => e.stopPropagation()} // 👈 prevent inside click
+        onClick={(e) => e.stopPropagation()}
         className="relative max-w-2xl w-full overflow-hidden rounded-2xl
                    border border-white/10
                    bg-gradient-to-l from-blue-950 to-black/80 shadow-xl"
       >
-        {/* Close Button */}
         <button
           onClick={closeModel}
           className="absolute top-4 right-4 z-10
@@ -44,14 +35,22 @@ const ProjectsDetails = ({
           <X />
         </button>
 
-        {/* Image */}
-        <img
-          src={thumbnail}
-          alt={title}
-          className="w-full h-60 object-cover block"
-        />
+        {pre ? (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            src={pre}
+            className="w-full h-80 object-cover block"
+          />
+        ) : (
+          <div className="w-full h-80 bg-gray-800 flex items-center justify-center">
+            <span className="text-gray-500">No Preview Available</span>
+          </div>
+        )}
 
-        {/* Content */}
         <div className="p-6">
           <h2 className="text-xl font-bold text-white">{title}</h2>
           <p className="mt-2 text-gray-300">{description}</p>
